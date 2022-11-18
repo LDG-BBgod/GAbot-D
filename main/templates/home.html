@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}?ver=5">
+<script defer src="{% static 'js/home.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <img class="background-img" src="../../static/img/home_background.png" alt="홈배경">
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <div class="logo-box"><img src="../../static/img/logo.svg" alt="로고"></div>
+            <div class="text1">스마트한 보험영업의 시작</div>
+            <div class="text2">영업비서 GABOT</div>
+        </div>
+        <div class="right-side float-right">
+            <div class="img-box"><img src="../../static/img/home_mainImg.svg" alt="메인이미지"></div>
+        </div>
+    </div>
+</section>
+<section class="section2">
+    <div class="inner">
+        <div class="head clearfix">
+            <div class="left-side float-left">
+                <div class="text1">견적서 요청고객 DB</div>
+                {% if request.session.user %}
+                {% else %}
+                <div class="text2">(로그인시 이용가능)</div>
+                {% endif %}
+            </div>
+            <div class="right-side float-right">
+                {% if request.session.user %}
+                <a class="text3" href="/compare">전체보기</a>
+                {% else %}
+                <span class="text3">전체보기</span>
+                {% endif %}                
+            </div>
+            <div class="left-arrow-box" id="compareLB"><img src="../../static/img/home_left_arrow.svg" alt="화살표"></div>
+            <div class="right-arrow-box" id="compareRB"><img src="../../static/img/home_right_arrow.svg" alt="화살표"></div>
+        </div>
+        <div class="content-box" id="contentBox1">
+            {% for list in compare %}
+            {% if request.session.user %}
+            <span class="content" onclick='compareDetail({{ list.id }})'>
+            {% else %}
+            <span class="content">
+            {% endif %}   
+                <div class="text4">
+                    <span class="birthToAge">{{ list.birth }}</span>
+                    <span>{{ list.gender }}</span>
+                </div>
+                <div class="text5">{{ list.concern|get_two_concern }}</div>
+                <div class="text6">{{ list.price }}</div>
+                <div class="text7">{{ list.consulting }} / 3</div>
+            </span>
+            {% endfor %}
+        </div>
+        {% if request.session.user %}
+        <a href="/compare" class="text10">전체보기</a>
+        {% else %}
+        <span class="text10">전체보기</span>
+        {% endif %}  
+        <div class="head clearfix">
+            <div class="left-side float-left">
+                <div class="text1">상담 요청고객 DB</div>
+                {% if request.session.user %}
+                {% else %}
+                <div class="text2">(로그인시 이용가능)</div>
+                {% endif %}              
+            </div>
+            <div class="right-side float-right">
+                {% if request.session.user %}
+                <a class="text3" href="/consulting">전체보기</a>
+                {% else %}
+                <span class="text3">전체보기</span>
+                {% endif %}  
+            </div>
+            <div class="left-arrow-box" id="consultingLB"><img src="../../static/img/home_left_arrow.svg" alt="화살표"></div>
+            <div class="right-arrow-box" id="consultingRB"><img src="../../static/img/home_right_arrow.svg" alt="화살표"></div>
+        </div>
+        <div class="content-box"id="contentBox2">
+            {% for list in consulting %}
+            {% if request.session.user %}
+            <div class="content" onclick='consultingDetail({{ list.id }})'>
+            {% else %}
+            <div class="content">
+            {% endif %}  
+                <div class="text8">희망 시간</div>
+                <div class="text9">{{ list.consultingdate }} {{ list.consultingtime }}</div>
+                <div class="text8">연락 수단</div>
+                <div class="text9">{{ list.selecttype }}</div>    
+            </div>
+            {% endfor %}
+        </div>
+        {% if request.session.user %}
+        <a href="/consulting" class="text10">전체보기</a>
+        {% else %}
+        <span class="text10">전체보기</span>
+        {% endif %}  
+    </div>
+</section>
+<section class="section3">
+    <div class="text1">보험 영업 어려우셨죠?</div>
+    <div class="text2">GABOT으로 스마트한<span></span> 영업을 경험해 보세요</div>
+    <section class="section3-1">
+        <div class="inner">
+            <ul>
+                <li>
+                    <div class="img-box"><img src="../../static/img/home_section3-1.svg" alt="이미지"></div>
+                </li>
+                <li>
+                    <div class="text3">견적고객 DB활용</div>
+                    <div class="text4">보험설문을 통해 남겨진 가명정보를 토대로 상품설계서를 GABOT을 통해 전달해보세요.</div>
+                    <div class="text5">고객희망시 설계사님과 연결시켜 드립니다.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="section3-2">
+        <div class="inner">
+            <ul>
+                <li>
+                    <div class="img-box"><img src="../../static/img/home_section3-2.svg" alt="이미지"></div>
+                </li>
+                <li>
+                    <div class="text3">상담고객 DB활용</div>
+                    <div class="text4">상담을 요청한 고객과 카톡 혹은 전화로 상담해주세요.</div>
+                    <div class="text5">GABOT을 통해 연결됨으로 고객의 연락처는 알 수 없습니다.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</section>
+<section class="section4">
+    <div class="text1">영업비서 GABOT</div>
+</section>
+{% endblock %}

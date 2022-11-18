@@ -1,0 +1,144 @@
+/***** 섹션1 *****/
+.section1{
+    min-height: 719px;
+}
+.section1 .select{
+    display: flex;
+    padding-top: 30px;
+}
+.section1 .select a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 200px;
+    border: solid 5px #5b8def;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #34464B;
+    margin-right: 30px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 .select a:last-child{
+    margin-right: 0;
+}
+.section1 .select a.on{
+    background-color: #5b8def;
+    color: #fff;
+}
+.section1 .content-box{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 30px;
+    width: 100%;
+    padding: 40px 80px;
+    border: solid 5px #5b8def;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 .content-box .title{
+    line-height: 40px; 
+}
+.section1 .content-box .title .text1{
+    font-size: 20px;
+    font-weight: bold;
+    color: #34464B;
+    padding: 0 10px;
+    border-bottom: solid 1px #5b8def;
+    box-sizing: border-box;
+}
+.section1 .content-box .title .text1:first-child{
+    border-top: solid 1px #5b8def;
+}
+.section1 .content-box .content{
+    line-height: 40px;
+}
+.section1 .content-box .content .text2{
+    overflow-x: hidden;
+    width: 100%;
+    font-size: 15px;
+    color: #34464B;
+    padding: 0 10px;
+    border-bottom: solid 1px #5b8def;
+    box-sizing: border-box;
+}
+.section1 .content-box .content .text2:first-child{
+    border-top: solid 1px #5b8def;
+}
+.section1 .content-box .content input{
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #5b8def;
+    border: none;
+    border-bottom: solid 1px #5b8def;
+    padding: 0 10px;
+    line-height: 40px;
+}
+.section1 .content-box .content .button-group{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.section1 .content-box .content .button-group button,
+.section1 .content-box .content .button-group .change-cancle{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    float: right;
+    background-color: #fff;
+    color: #5b8def;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    border: solid 1px #E1E1E1;
+    border-radius: 10px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+    text-align: center;
+}
+.section1 .content-box .content .button-group .change-cancle:hover{
+    cursor: pointer;
+}
+.section1 .bottom-button{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.section1 .bottom-button .left-side a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin-top: 20px;
+    background-color: #fff;
+    color: #5b8def;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    border: solid 1px #E1E1E1;
+    border-radius: 10px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 .bottom-button .right-side a,
+.section1 .bottom-button .right-side button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    float: right;
+    margin-top: 20px;
+    background-color: #fff;
+    color: #5b8def;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    border: solid 1px #E1E1E1;
+    border-radius: 10px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}

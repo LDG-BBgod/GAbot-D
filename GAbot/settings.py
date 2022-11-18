@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'home',
+    'main',
+    'dbapp',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-KR'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -98,6 +99,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
 pymysql.install_as_MySQLdb()
 
 # 개발환경
@@ -112,7 +117,7 @@ pymysql.install_as_MySQLdb()
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME' : 'gabot_dev',
+#         'NAME' : 'gabot_exp',
 #         'USER' : 'bbgod',
 #         'PASSWORD' : 'ldg8410229!', 
 #         'HOST': 'database-1.cev2vmz85jni.ap-northeast-2.rds.amazonaws.com',
@@ -136,7 +141,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME' : 'gabot',
+        'NAME' : 'gabot_dev',
         'USER' : 'bbgod',
         'PASSWORD' : 'ldg8410229!',
         'HOST': 'database-1.cev2vmz85jni.ap-northeast-2.rds.amazonaws.com',

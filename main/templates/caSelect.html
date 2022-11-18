@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/caSelect.css' %}?ver=5">
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            <a class="menu" href="/caSelect">관리자</a>
+            <a class="menu" href="/caLogout">로그아웃</a>
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <ul>
+            <a href="/caCompare">서비스 관리</a>
+            <a href="/caUserDB">DB 확인 및 관리</a>
+        </ul>
+    </div>
+</section>
+{% endblock %}

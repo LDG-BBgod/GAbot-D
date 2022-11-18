@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}?ver=5">
+<script defer src="{% static 'js/register.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="agree-box clearfix">
+        <div class="left-side float-left">
+            <input type="checkbox" id="registerAgree1">
+            <label for="registerAgree1">[필수] 이용약관 동의</label>
+        </div>
+        <div class="right-side float-right">
+            <a href="#" target="_blank">전체보기</a>
+        </div>
+    </div>
+    <div class="agree-box clearfix">
+        <div class="left-side float-left">
+            <input type="checkbox" id="registerAgree2">
+            <label for="registerAgree2">[필수] 개인정보 처리방침</label>
+        </div>
+        <div class="right-side float-right">
+            <a href="#" target="_blank">전체보기</a>
+        </div>
+    </div>
+    <form method="post" name="form" autocomplete="off">
+        {% csrf_token %}
+        <div class="input-box">
+            <div class="input-section">
+                <div class="text1">아이디</div>
+                <input type="text" name="userid" id="userid" onfocusout="idDuplcateCheck()" autocomplete="off" placeholder="ID (영어+숫자) (6~12글자)">
+                <div class="error" id="errorId"></div>
+            </div>
+            <div class="input-section">
+                <div class="text1">비밀번호</div>
+                <input type="password" name="userpw" id="userpw" onfocusout="userpwCheck()" autocomplete="new-password" placeholder="PW (영어+숫자+특수문자) (6~20글자)">
+                <div class="error" id="errorPw"></div>
+            </div>
+            <div class="input-section">
+                <div class="text1">비밀번호 확인</div>
+                <input type="password" id="reUserpw" onfocusout="reUserpwCheck()" autocomplete="off">
+                <div class="error" id="errorRePw"></div>
+            </div>
+            <div class="input-section">
+                <div class="text1">이름</div>
+                <input type="text" name="userName" id="userName" autocomplete="off">
+                <div class="error" id="errorName"></div>
+            </div>
+            <div class="input-section" id="toggleSection1">
+                <div class="text1">휴대폰</div>
+                <input type="text" name="phone" id="phone" onfocusout="phoneCheck()" autocomplete="off" placeholder="ex) 01012345678">
+                <div class="phone-button" onclick="sendSMS()">인증번호 발송</div>
+                <div class="error" id="errorSms"></div>
+            </div>
+            <div class="input-section" id="toggleSection2">
+                <div class="text1">인증번호 확인</div>
+                <input type="text" id="authCheck" autocomplete="off">
+                <div class="phone-button" onclick="authNumCheck()">확인</div>
+                <div class="error" id="errorSmsCheck"></div>
+            </div>
+            <div class="input-section">
+                <div class="text1">카카오톡 ID</div>
+                <input type="text" name="kakao" id="kakao" autocomplete="off" placeholder="카카오톡 ID or 전화번호 입력">
+            </div>
+            <div class="input-section">
+                <div class="text1">이메일</div>
+                <input type="text" name="email" id="email" onfocusout="emailCheck()" autocomplete="off" placeholder="gabot@gabot.com">
+                <div class="error" id="errorEmail"></div>
+            </div>
+        </div>
+    </form>
+    <button onclick="submitCheck()">회원가입 요청</button>
+    <div class="text2">설계사님께 확인 연락이 갑니다.</div>
+</section>
+{% endblock %}

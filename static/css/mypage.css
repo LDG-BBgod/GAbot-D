@@ -1,0 +1,635 @@
+/***** 공통 *****/
+.mask{
+    position: absolute;
+    z-index: 9000;
+    background-color: #000;
+    top: 0;
+    left: 0;
+    height: 1793px;
+    width: 100%;
+    opacity: 0.3;
+}
+/***** 섹션 비밀번호 체크 *****/
+.section-checkPw{
+    position: fixed;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 9001;
+}
+.section-checkPw .content-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 50px;  
+}
+.section-checkPw .content-box .text1{
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section-checkPw .content-box input{
+    margin-top: 30px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    color: #34464B;
+    border: solid 1px #34464B;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+.section-checkPw .content-box .text2{
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%,0);
+    color: #F83D3D;
+}
+.section-checkPw .content-box button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    float: right;
+    margin-top: 50px;
+    background-color: #fff;
+    color: #5b8def;
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    height: 60px;
+    border: solid 1px #E1E1E1;
+    border-radius: 10px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+
+/***** 섹션 유저 데이터 변경 *****/
+.section-change{
+    position: absolute;
+    top: 201px;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 9001;
+}
+.section-change .content-box{
+    box-sizing: border-box;
+    position: relative;
+    width: 1120px;
+    height: 468px;
+    background-color: #fff;
+    border: solid 5px #5b8def;
+    border-radius: 20px;
+    padding: 50px 50px;
+}
+.section-change .content-box form{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+.section-change .content-box form .title .text1{
+    box-sizing: border-box;
+    height: 50px;
+    border-bottom: solid 1px #5b8def;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section-change .content-box form .title .text1:first-child{
+    border-top: solid 1px #5b8def;
+}
+.section-change .content-box form .content .text2{
+    box-sizing: border-box;
+    height: 50px;
+    border-bottom: solid 1px #5b8def;
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section-change .content-box form .content .text2:first-child{
+    border-top: solid 1px #5b8def;
+}
+.section-change .content-box form input{
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px #5b8def;
+    color: #5b8def !important;
+}
+.section-change .content-box button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    float: right;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #5b8def;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    border: solid 1px #E1E1E1;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #D6D6D6;
+}
+
+/***** 섹션1 *****/
+.section1{
+
+}
+.section1 .inner{
+
+}
+.section1 .text1{
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section1 .head .right-side:hover{
+    cursor: pointer;
+}
+.section1 .text2{
+    margin-top: 66px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #9D9D9D;
+}
+.section1 .content-box{
+    box-sizing: border-box;
+    margin-top: 15px;
+    border: solid 5px #5b8def;
+    border-radius: 20px;
+    padding: 50px;
+}
+.section1 .content-box .content{
+    border-top: solid 1px #5b8def;
+    height: 50px;
+    overflow: hidden;
+}
+.section1 .content-box .content:last-child{
+    border-bottom: solid 1px #5b8def;
+}
+.section1 .content-box .content .text3{
+    font-size: 22px;
+    font-weight: bold;
+    color: #34464B;
+    line-height: 50px;
+}
+
+/***** 섹션2 *****/
+.section2{
+
+}
+.section2 .inner{
+
+}
+.section2 .head{
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 15px;
+    border-bottom: solid 2px #9D9D9D;
+}
+.section2 .head .left-side{
+    display: flex;
+}
+.section2 .head .left-side .text1{
+    font-size: 36px;
+    font-weight: bold;
+    color: #34464B;
+    margin-right: 10px;
+}
+.section2 .head .right-side{
+    display: flex;
+}
+.section2 .head .right-side .text2{
+    display: block;
+    padding-top: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #9D9D9D;
+}
+.section2 .head .left-arrow-box{
+    position: absolute;
+    top: 275px;
+    left: -70px;
+}
+.section2 .head .left-arrow-box img{
+    height: 40px;
+}
+.section2 .head .right-arrow-box{
+    position: absolute;
+    top: 275px;
+    right: -70px;
+}
+.section2 .head .right-arrow-box img{
+    height: 40px;
+}
+.section2 .head .left-arrow-box:hover,
+.section2 .head .right-arrow-box:hover{
+    cursor: pointer;
+}
+.section2 .content-box{
+    position: relative;
+    margin-top: 50px;
+    overflow: hidden;
+    height: 300px;
+    width: 100%;
+    display: flex;
+}
+.section2 .content-box .content{
+    flex-shrink: 0;
+    position: relative;
+    height: 220px;
+    width: 330px;
+    margin-right: 65px;
+    border: solid 5px #5b8def;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    transition: 0.5s;
+}
+.section2 .content-box.content-box2 .content{
+    margin-right: 65px;
+    width: 231px;
+}
+.section2 .content-box .content:hover{
+    cursor: pointer;
+}
+.section2 .content-box .content .text3{
+    font-size: 25px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section2 .content-box .content .text4{
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #34464B;
+}
+.section2 .content-box .content .text5{
+    margin-top: 30px;
+    font-size: 18px;
+    color: #34464B;
+}
+.section2 .content-box .content .text6{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #9D9D9D;
+}
+.section2 .content-box .content .text7{
+    font-size: 25px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section2 .content-box .content .text8{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #34464B;
+}
+
+
+
+
+
+
+@media (max-width: 600px){
+    /***** 공통 *****/
+    .mask{
+        position: absolute;
+        z-index: 9000;
+        background-color: #000;
+        top: 0;
+        left: 0;
+        height: 1955px;
+        width: 100%;
+        opacity: 0.3;
+    }
+    /***** 섹션 비밀번호 체크 *****/
+    .section-checkPw{
+        width: 100%;
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%,0);
+        z-index: 9001;
+    }
+    .section-checkPw .content-box{
+        box-sizing: border-box;
+        padding: 0 15px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 250px;
+        background-color: #fff;
+        border-radius: 0;  
+    }
+    .section-checkPw .content-box .text1{
+        margin-top: 30px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section-checkPw .content-box input{
+        box-sizing: border-box;
+        margin-top: 20px;
+        width: 100%;
+        height: 40px;
+        font-size: 22px;
+        color: #34464B;
+        border: solid 1px #34464B;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+    .section-checkPw .content-box .text2{
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        transform: translate(-50%,0);
+        color: #F83D3D;
+    }
+    .section-checkPw .content-box .button-group{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .section-checkPw .content-box button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: none;
+        margin: 50px 10px;
+        background-color: #fff;
+        color: #5b8def;
+        font-size: 16px;
+        font-weight: bold;
+        width: 40%;
+        height: 40px;
+        border: solid 1px #E1E1E1;
+        border-radius: 5px;
+        box-shadow: 4px 4px 7px #D6D6D6;
+    }
+
+    /***** 섹션 유저 데이터 변경 *****/
+    .section-change{
+        padding: 0 15px;
+        width: calc(100% - 30px);
+        padding: 0 15px;
+        position: absolute;
+        top: 132px;
+        left: 50%;
+        transform: translate(-50%,0);
+        z-index: 9001;
+    }
+    .section-change .content-box{
+        position: relative;
+        width: 100%;
+        height: 420px;
+        background-color: #fff;
+        border: solid 3px #5b8def;
+        border-radius: 20px;
+        padding: 30px;
+    }
+    .section-change .content-box form{
+        display: grid;
+        grid-template-columns: 1.5fr 4fr;
+    }
+    .section-change .content-box form .title .text1{
+        box-sizing: border-box;
+        height: 40px;
+        border-bottom: solid 1px #5b8def;
+        line-height: 40px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section-change .content-box form .title .text1:first-child{
+        border-top: solid 1px #5b8def;
+    }
+    .section-change .content-box form .title .text1:last-child{
+        height: 80px;
+    }
+    .section-change .content-box form .content .text2{
+        box-sizing: border-box;
+        height: 40px;
+        border-bottom: solid 1px #5b8def;
+        line-height: 40px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section-change .content-box form .content .text2:first-child{
+        border-top: solid 1px #5b8def;
+    }
+    .section-change .content-box form .content .text2:last-child{
+        height: 80px;
+    }
+    .section-change .content-box form input{
+        box-sizing: border-box;
+        width: 100%;
+        border: none;
+        border-bottom: solid 1px #5b8def;
+        color: #5b8def !important;
+    }
+    .section-change .content-box button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        float: right;
+        margin-top: 10px;
+        background-color: #fff;
+        color: #5b8def;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100px;
+        height: 40px;
+        border: solid 1px #E1E1E1;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px #D6D6D6;
+    }
+
+    /***** 섹션1 *****/
+    .section1{
+        padding: 0 15px;
+    }
+    .section1 .inner{
+
+    }
+    .section1 .text1{
+        margin-top: 40px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section1 .head .right-side:hover{
+        cursor: pointer;
+    }
+    .section1 .text2{
+        margin-top: 46px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #9D9D9D;
+    }
+    .section1 .content-box{
+        box-sizing: border-box;
+        margin-top: 10px;
+        border: solid 3px #5b8def;
+        border-radius: 15px;
+        padding: 30px;
+    }
+    .section1 .content-box .content{
+        border-top: solid 1px #5b8def;
+        height: 100%;
+        overflow: hidden;
+    }
+    .section1 .content-box .content:last-child{
+        border-bottom: solid 1px #5b8def;
+    }
+    .section1 .content-box .content .text3{
+        font-size: 14px;
+        font-weight: bold;
+        color: #34464B;
+        line-height: 40px;
+    }
+
+    /***** 섹션2 *****/
+    .section2{
+        padding: 0 15px;
+    }
+    .section2 .inner{
+
+    }
+    .section2 .head{
+        position: relative;
+        padding-top: 40px;
+        padding-bottom: 10px;
+        border-bottom: solid 2px #9D9D9D;
+    }
+    .section2 .head .left-side{
+        display: flex;
+    }
+    .section2 .head .left-side .text1{
+        font-size: 18px;
+        font-weight: bold;
+        color: #34464B;
+        margin-right: 5px;
+    }
+    .section2 .head .left-side .text1 span{
+        font-size: 14px;
+
+    } 
+    .section2 .head .right-side{
+        display: flex;
+    }
+    .section2 .head .right-side .text2{
+        display: none;
+        padding-top: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #9D9D9D;
+    }
+    .section2 .head .left-arrow-box{
+        position: absolute;
+        top: 275px;
+        left: -70px;
+    }
+    .section2 .head .left-arrow-box img{
+        height: 40px;
+    }
+    .section2 .head .right-arrow-box{
+        position: absolute;
+        top: 275px;
+        right: -70px;
+    }
+    .section2 .head .right-arrow-box img{
+        height: 40px;
+    }
+    .section2 .head .left-arrow-box:hover,
+    .section2 .head .right-arrow-box:hover{
+        cursor: pointer;
+    }
+    .section2 .content-box{
+        position: relative;
+        margin-top: 40px;
+        overflow: none;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .section2 .content-box .content{
+        flex-shrink: 0;
+        position: relative;
+        height: 220px;
+        width: 100%;
+        margin-right: 65px;
+        border: solid 3px #5b8def;
+        border-radius: 30px;
+        box-shadow: 3px 3px 10px #D9D9D9;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 40px 20px;
+        transition: 0.5s;
+        margin-bottom: 20px;
+    }
+    .section2 .content-box.content-box2 .content{
+        margin-right: 65px;
+        width: 100%;
+    }
+    .section2 .content-box .content:hover{
+        cursor: pointer;
+    }
+    .section2 .content-box .content .text3{
+        font-size: 25px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section2 .content-box .content .text4{
+        margin-top: 30px;
+        font-size: 18px;
+        line-height: 25px;
+        color: #34464B;
+    }
+    .section2 .content-box .content .text5{
+        margin-top: 30px;
+        font-size: 18px;
+        color: #34464B;
+    }
+    .section2 .content-box .content .text6{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #9D9D9D;
+    }
+    .section2 .content-box .content .text7{
+        font-size: 25px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section2 .content-box .content .text8{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #34464B;
+    }
+}

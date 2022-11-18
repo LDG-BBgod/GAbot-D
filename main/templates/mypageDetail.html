@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/MypageDetail.css' %}?ver=5">
+<script defer src="{% static 'js/MypageDetail.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <div class="head clearfix">
+            <div class="left-side float-left">
+                <div class="text1">
+                    <span class="birthToAge">{{ compare.birth }}</span>
+                    <span>({{ compare.birth|slice:"0:4" }}.{{ compare.birth|slice:"4:6" }}.{{ compare.birth|slice:"6:8" }})</span>
+                </div>
+            </div>
+            <div class="right-side float-right">
+                <div class="text2">{{ compare.nextRegisterDate }}까지 소견서, 견적서 수정이 가능합니다.</div>
+            </div>
+        </div>
+        <div class="content-box">
+            <div class="content contentToggle">
+                <div class="title clearfix">
+                    <div class="left-side float-left">
+                        <div class="text3">관심보험</div>
+                    </div>
+                    <div class="right-side float-right">
+                        <img src="../../static/img/bottom_arrow.svg" alt="" onclick="contentToggle(0)">
+                    </div>
+                </div>
+                <div class="sub-title">- 관심있는 보험을 알려주세요.</div>
+                <div class="text4">{{ compare.concern }}</div>
+            </div>
+            <div class="content contentToggle">
+                <div class="title clearfix">
+                    <div class="left-side float-left">
+                        <div class="text3">희망 월 보험료</div>
+                    </div>
+                    <div class="right-side float-right">
+                        <img src="../../static/img/bottom_arrow.svg" alt="" onclick="contentToggle(1)">
+                    </div>
+                </div>
+                <div class="sub-title">- 희망하시는 월 보험료를 알려주세요.</div>
+                <div class="text4">{{ compare.price }}</div>
+            </div>
+            <div class="content contentToggle">
+                <div class="title clearfix">
+                    <div class="left-side float-left">
+                        <div class="text3">병원 이력</div>
+                    </div>
+                    <div class="right-side float-right">
+                        <img src="../../static/img/bottom_arrow.svg" alt="" onclick="contentToggle(2)">
+                    </div>
+                </div>
+                <div class="sub-title">- 최근 1년 이내에 병원에 다녀온 적이 있나요.</div>
+                <div class="text4">{{ compare.hospital }}</div>
+                <div class="sub-title">- 병원에서 어떤 의료행위를 받으셨나요.</div>
+                <div class="text4">{{ compare.hospitalTreatment }}</div>
+                <div class="sub-title">- 원이이 된 증상이나 병을 알려주세요.</div>
+                <div class="text4">{{ compare.hospitalDisease }}</div>
+                <div class="sub-title">- 지병이 있으시다면 알려주세요.</div>
+                <div class="text4">{{ compare.disease }}</div>
+            </div>
+            <div class="content contentToggle">
+                <div class="title clearfix">
+                    <div class="left-side float-left">
+                        <div class="text3">가족 질환</div>
+                    </div>
+                    <div class="right-side float-right">
+                        <img src="../../static/img/bottom_arrow.svg" alt="" onclick="contentToggle(3)">
+                    </div>
+                </div>
+                <div class="sub-title">- 가족이 갖고있는 질환을 선택해주세요.</div>
+                <div class="text4">{{ compare.familyDisease }}</div>
+                <div class="sub-title">- 기타 내용</div>
+                <div class="text4">{{ compare.familyDiseaseEtc }}</div>
+            </div>
+            <div class="content contentToggle">
+                <div class="title clearfix">
+                    <div class="left-side float-left">
+                        <div class="text3">직업, 사는지역</div>
+                    </div>
+                    <div class="right-side float-right">
+                        <img src="../../static/img/bottom_arrow.svg" alt="" onclick="contentToggle(4)">
+                    </div>
+                </div>
+                <div class="sub-title">- 직업을 알려주세요.</div>
+                <div class="text4">{{ compare.job }}</div>
+                <div class="sub-title">- 사시는 지역을 알려주세요.</div>
+                <div class="text4">{{ compare.region }}</div>
+            </div>
+            <div class="content contentToggle">
+                <div class="title clearfix">
+                    <div class="left-side float-left">
+                        <div class="text3">보험 진단 내역</div>
+                    </div>
+                    <div class="right-side float-right">
+                        <img src="../../static/img/bottom_arrow.svg" alt="" onclick="contentToggle(5)">
+                    </div>
+                </div>
+                {% if myinsurance == None %}
+                <div class="text4">고객님의 보험진단내역이 없습니다.</div>
+                {% else %}
+                <div class="text5" onclick="window.open('/myinsurance/{{ myinsurance.id }}/')">보험진단내역 보러가기</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section2">
+    <div class="inner">
+        <section class="section2-1">
+            <div class="head clearfix">
+                <div class="left-side float-left">
+                    <div class="text1">소견서</div>
+                </div>
+                <div class="right-side float-right">
+                    <div class="text2" onclick="ChangeOpinion()">수정하기</div>
+                </div>
+            </div>
+            <div class="content-box" id="contentBox1">
+                <div class="content">{{ compareE.opinion }}</div>
+            </div>
+            <textarea class="content-box" id="opinion" name="opinion" placeholder="고객님에게 전달될 설계사님의 의견을 작성해 주세요." style="display: none;"></textarea>
+            <button id="opinionButton" onclick="ChangeOpinionSubmit({{ compareE.id }})" style="display: none;">수정완료</button>
+            <button id="opinionCancleButton" onclick="ChangeOpinionCancle()" style="display: none;">취소</button>
+        </section>
+        <section class="section2-2">
+            <div class="head clearfix">
+                <div class="left-side float-left">
+                    <div class="text1">견적서</div>
+                </div>
+                <div class="right-side float-right">
+                    <div class="text2" onclick="ChangePDF()">수정하기</div>
+                </div>
+            </div>
+            <div class="content-box" id="contentBox2">
+                <div class="content">{{ compareE.pdfFile }}</div>
+            </div>
+            <div class="fileArea" style="display: none;">
+                <form method="POST" enctype="multipart/form-data" name="form">
+                    {% csrf_token %}
+                    <input type="text" value="pdf" name="type" style="display: none;">
+                    <input class="input-file" type="file" name="pdfFile" id="pdfFile" style="display: none;">
+                    <div class="upload-name"></div>
+                    <label for="pdfFile">파일첨부</label>
+                </form>
+                <button type="submit" onclick="ChangePdfFileSubmit()">수정완료</button>
+                <button onclick="ChangePdfFileCancle()">취소</button>
+            </div>
+        </section>
+    </div>
+</section>
+<section class="section3">
+    <div class="inner">
+        <button onclick="deleteEstimate({{ compareE.id }})">삭제하기</button>
+    </div>
+</section>
+{% endblock %}

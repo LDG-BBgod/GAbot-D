@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/caCompareDetail.css' %}?ver=5">
+<script defer src="{% static 'js/caCompareDetail.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            <a class="menu" href="/caSelect">관리자</a>
+            <a class="menu" href="/caLogout">로그아웃</a>
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        {% for list in compare %}
+        <div class="content">
+            <span>{{ list.registerId }} / {{ list.registerPhone }}</span>
+            <div class="text1">{{ list.opinion }}</div>
+            <div class="text2">{{ list.pdfFile }}</div>
+            <a href="/download?path={{ list.pdfFile }}&&content_type={{ list.contentType }}" target="_blank">다운로드</a>
+        </div>
+        {% endfor %}
+        <div class="button-group clearfix">
+            <a class="cancle-button float-left" href="/caCompare">돌아가기</a>
+            <button class="delete-button float-right" onclick="DeleteEstimate()">삭제</button>
+        </div>
+    </div>
+</section>
+{% endblock %}

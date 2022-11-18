@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/consulting.css' %}?ver=5">
+<script defer src="{% static 'js/consulting.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <div class="text1">상담 요청고객 DB</div>
+        <div class="content-box">
+            {% for list in consulting %}
+            <span class="content" onclick='consultingDetail({{ list.id }})'>
+                <div class="text2">희망 시간</div>
+                <div class="text3">{{ list.consultingdate }} {{ list.consultingtime }}</div>
+                <div class="text2">연락 수단</div>
+                <div class="text3">{{ list.selecttype }}</div>   
+            </span>
+            {% endfor %}
+        </div>
+        <div class="list-box">
+            {% if consulting.has_previous %}
+            <a class="page-button" href="?p={{ consulting.previous_page_number }}"><img src="../../static/img/prev_arrow.svg" alt="화살표">&nbsp이전</a>
+            {% else %}
+            <span class="page-button"><img src="../../static/img/prev_arrow.svg" alt="화살표">&nbsp이전</span>
+            {% endif %}
+            {% for page_number in consulting.paginator.page_range %}
+                {% if consulting.number == consulting.paginator.num_pages|add:-1 and page_number == consulting.paginator.num_pages|add:-4 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% elif consulting.number == consulting.paginator.num_pages and page_number == consulting.paginator.num_pages|add:-3 or consulting.number == consulting.paginator.num_pages and page_number == consulting.paginator.num_pages|add:-4 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% endif %}
+                {% if page_number >= consulting.number|add:-2 and page_number <= consulting.number|add:2 %}
+                    {% if page_number == consulting.number %}
+                    <a class="page-number current-page" href="?p={{ page_number }}">{{ page_number }}</a>
+                    {% else %}
+                    <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                    {% endif %}
+                {% endif %}
+                {% if consulting.number == 1 and page_number == 4 or consulting.number == 1 and page_number == 5 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% elif consulting.number == 2 and page_number == 5 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if consulting.has_next %}
+            <a class="page-button" href="?p={{ consulting.next_page_number }}">다음&nbsp<img src="../../static/img/next_arrow.svg" alt="화살표"></a>
+            {% else %}
+            <span class="page-button">다음&nbsp<img src="../../static/img/next_arrow.svg" alt="화살표"></span>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<section class="section2">
+    <div class="position-box">
+        <div class="text1">견적 요청고객 영업STEP</div>
+        <div class="text2">STEP 1</div>
+        <div class="content-box">
+            <div class="text3">상담 DB예약하기</div>
+            <div class="text4">영업비서 GABOT에 상담을 요청한 고객들을 선택하시면 설계사님과 해당 고객의 상담예약이 완료됩니다.</div>
+        </div>
+        <div class="text2">STEP 2</div>
+        <div class="content-box">
+            <div class="text3">상담 진행</div>
+            <div class="text4">해당 시간에 GABOT의 번호로 설계사님께 전화나 카톡이 갑니다. 고객님의 번호는 알 수 없습니다. 상담을 진행해 주세요.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

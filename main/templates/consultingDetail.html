@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/consultingDetail.css' %}?ver=5">
+<script defer src="{% static 'js/consultingDetail.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="text1">{{ consulting.consultingdate }} {{ consulting.consultingtime }}에 GABOT을 통해 연락이 갑니다.<br><span>상담을 준비해 주세요.</span></div>
+    <div class="content">
+        <div class="text2">희망 시간</div>
+        <div class="text3">{{ consulting.consultingdate }} {{ consulting.consultingtime }}</div>
+        <div class="text2">연락 수단</div>
+        <div class="text3">{{ consulting.selecttype }}</div>    
+    </div>
+    <div class="text4">상담예약 신청을 확정하시겠습니까?</div>
+    <div class="button-box">
+        <button onclick="location.href='/consulting'">취 소</button>
+        <button onclick="submit({{ consulting.id }})">완 료</button>
+    </div>
+</section>
+{% endblock %}

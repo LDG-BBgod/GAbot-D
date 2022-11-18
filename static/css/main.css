@@ -1,0 +1,190 @@
+/***** 공통 *****/
+body{
+    box-sizing: border-box;
+    word-break: keep-all;
+}
+section{
+    position: relative;
+}
+.inner{
+    max-width: 1120px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+input:focus { outline: none; }
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+a {
+    text-decoration: none;
+}
+button:hover{
+    cursor: pointer;
+}
+label:hover{
+    cursor: pointer;
+}
+input::-webkit-input-placeholder{
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+/***** 헤더 *****/
+header{
+    background: #fff;
+    box-shadow: 0 1px 6px #e1e1e1;
+}
+header .inner{
+    height: 100px;
+}
+header .left-side{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+header .left-side .text1{
+    margin-right: 10px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #5b8def;
+}
+header .left-side .logo-box{
+
+}
+header .left-side .logo-box img{
+    height: 35px;
+}
+header .right-side{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+header .right-side .menu{
+    height: 40px;
+    width: 120px;
+    border: solid 2px #000;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 15px;
+}
+
+/***** 푸터 *****/
+footer{
+    background: #34464B;
+    height: 150px;
+}
+footer .inner{
+    padding-top: 20px;
+}
+footer .left-side{
+
+}
+footer .left-side p{
+    margin-top: 8px;
+    color: #ccc;
+    font-size: 12px;
+}
+
+footer .right-side{
+    text-align: right;
+}
+footer .right-side p{
+    margin-top: 8px;
+    color: #ccc;
+    font-size: 12px;
+}
+footer .right-side a{
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 5px;
+    color: #ccc;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 600px){
+    /***** 헤더 *****/
+    header{
+        box-shadow: 0 1px 3px #e1e1e1;
+    }
+    header .inner{
+        height: 60px;
+        padding: 0 15px;
+    }
+    header .left-side{
+
+    }
+    header .left-side .text1{
+        display: none;
+    }
+    header .left-side .logo-box{
+
+    }
+    header .left-side .logo-box img{
+        height: 35px;
+    }
+    header .right-side{
+
+    }
+    header .right-side .menu{
+        height: 30px;
+        width: 100px;
+        border: solid 1px #000;
+        border-radius: 5px;
+        font-size: 15px;
+        line-height: 30px;
+        margin-left: 10px;
+    }
+
+    /***** 푸터 *****/
+    footer{
+        height: 320px;
+    }
+    footer .inner{
+        padding-top: 20px 20px 0 20px;
+        text-align: center;
+    }
+    footer .left-side{
+        float: none;
+    }
+    footer .left-side p{
+        margin-top: 8px;
+        color: #ccc;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    footer .right-side{
+        float: none;
+        text-align: center;
+    }
+    footer .right-side p{
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    footer .right-side a{
+    }
+}

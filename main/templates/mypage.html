@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/mypage.css' %}?ver=5">
+<script defer src="{% static 'js/mypage.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<div class="mask" id="mask" style="display: none;"></div>
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section-checkPw" style="display: none;">
+    <div class="content-box">
+        <div class="text1">비밀번호를 입력해주세요.</div>
+        <input type="text">
+        <div class="text2"></div>
+        <div class="button-group">
+            <button onclick="CheckPw()">확인</button>
+            <button onclick="CheckPwCancle()">취소</button>
+        </div>
+    </div>
+</section>
+<section class="section-change" style="display: none;">
+    <div class="content-box">
+        <form action="">
+            <div class="title">
+                <div class="text1">이름</div>
+                <div class="text1">아이디</div>
+                <div class="text1">비밀번호</div>
+                <div class="text1">전화번호</div>
+                <div class="text1">카카오톡</div>
+                <div class="text1">메일</div>
+                <div class="text1">설계사 정보</div>
+            </div>
+            <div class="content">
+                <div class="text2">{{ user.userName }}</div>
+                <div class="text2">{{ user.userid }}</div>
+                <input type="text" class="text2" value="{{ user.userpw }}" id="changeUserpw">
+                <div class="text2">{{ user.phone }}</div>
+                <input type="text" class="text2" value="{{ user.kakao }}" id="changeKakao">
+                <input type="text" class="text2" value="{{ user.email }}" id="changeEmail">
+                <div class="text2">{{ user.gaInfo }}</div>
+            </div>
+        </form>
+        <button onclick="ChangeSubmit()">수정완료</button>
+        <button onclick="ChangeCancle()">취소</button>
+    </div>
+</section>
+<section class="section1">
+    <div class="inner">
+        <div class="head clearfix">
+            <div class="left-side float-left">
+                <div class="text1">회원정보</div>
+            </div>
+            <div class="right-side float-right">
+                <div class="text2" onclick="ChangeUserData()">수정하기</div>
+            </div>
+        </div>
+        <div class="content-box">
+                <div class="content">
+                    <div class="text3">이름 : {{ user.userName }}</div>
+                </div>
+                <div class="content">
+                    <div class="text3">아이디 : {{ user.userid }}</div>
+                </div>
+                <div class="content">
+                    <div class="text3">비밀번호 : {{ user.userpw|change_pw }}</div>
+                </div>
+                <div class="content">
+                    <div class="text3">전화번호 : {{ user.phone }}</div>
+                </div>
+                <div class="content">
+                    <div class="text3">카카오톡 : {{ user.kakao }}</div>
+                </div>
+                <div class="content">
+                    <div class="text3">메일 : {{ user.email }}</div>
+                </div>
+                <div class="content">
+                    <div class="text3">설계사정보 : {{ user.gaInfo }}</div>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="section2">
+    <div class="inner">
+        <div class="head clearfix">
+            <div class="left-side float-left">
+                <div class="text1">견적서 제출 LIST<span>(2주 후 기간 만료)</span></div>
+            </div>
+            <div class="right-side float-right">
+                <span class="text2" id="compareCount">{{ compare.count|get_page_to_compare }}</span>
+                <span class="text2">&nbsp/ {{ compare.count|get_page_to_compare }}</span>
+            </div>
+            <div class="left-arrow-box" id="compareLB"><img src="../../static/img/home_left_arrow.svg" alt="화살표"></div>
+            <div class="right-arrow-box" id="compareRB"><img src="../../static/img/home_right_arrow.svg" alt="화살표"></div>
+        </div>
+        <div class="content-box" id="contentBox1">
+            {% for list in compare %}
+            <span class="content" onclick="MypageDetail({{ list.id }})">
+                <div class="text3">
+                    <span class="birthToAge">{{ list.birth }}</span>
+                    <span>{{ list.gender }}</span>
+                </div>
+                <div class="text4">{{ list.concern|get_two_concern }}</div>
+                <div class="text5">{{ list.price }}</div>
+                <div class="text6">수정하기</div>
+            </span>
+            {% endfor %}
+        </div>
+        <div class="head clearfix">
+            <div class="left-side float-left">
+                <div class="text1">상담 예약 LIST<span>(2주 후 기간 만료)</span></div>
+            </div>
+            <div class="right-side float-right">
+                <span class="text2" id="consultingCount">{{ consulting.count|get_page_to_consulting }}</span>
+                <span class="text2">&nbsp/ {{ consulting.count|get_page_to_consulting }}</span>
+            </div>
+            <div class="left-arrow-box" id="consultingLB"><img src="../../static/img/home_left_arrow.svg" alt="화살표"></div>
+            <div class="right-arrow-box" id="consultingRB"><img src="../../static/img/home_right_arrow.svg" alt="화살표"></div>
+        </div>
+        <div class="content-box content-box2" id="contentBox2">
+            {% for list in consulting %}
+            <div class="content" onclick='CancelReserve({{ list.consultingPK }})'>
+                <div class="text7">희망 시간</div>
+                <div class="text8">{{ list.consultingDate }} {{ list.consultingTime }}</div>
+                <div class="text7">연락 수단</div>
+                <div class="text8">{{ list.selectType }}</div>
+                <div class="text6">취소하기</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

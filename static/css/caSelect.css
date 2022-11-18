@@ -1,0 +1,25 @@
+/***** 공통 *****/
+
+/***** 섹션1 *****/
+.section1{
+
+}
+.section1 ul{
+    height: 719px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
+.section1 ul a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #34464B;
+    height: 250px;
+    width: 350px;
+    border: solid 5px #5b8def;
+    border-radius: 20px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}

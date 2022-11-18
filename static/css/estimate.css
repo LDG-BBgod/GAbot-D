@@ -1,0 +1,215 @@
+/***** 공통 *****/
+
+/***** 섹션1 *****/
+.section1{
+
+}
+.section1 .inner{
+
+}
+.section1 .text1{
+    margin-top: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section1 textarea{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: block;
+    height: 250px;
+    width: 100%;
+    box-sizing: border-box;
+    border: solid 5px #5b8def;
+    border-radius: 10px;
+    padding: 20px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #34464B;
+    resize: none;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 textarea::-webkit-input-placeholder{
+    color: #cccccc;
+    font-size: 0.9em;
+}
+.section1 textarea:focus{
+    outline: none;
+}
+.section1 .text2{
+    margin-left: 10px;
+    font-size: 20px;
+    color: #34464B;
+}
+.section1 .file-area{
+    margin-top: 20px;
+}
+.section1 .file-area .input-file{
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.section1 .file-area label{
+    display: block;
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #34464B;
+    text-align: center;
+    line-height: 25px;
+    border: solid 2px #5b8def;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 .file-area .upload-name{
+    margin-top: 10px;
+    display: block;
+    height: 130px;
+    width: 100%;
+    box-sizing: border-box;
+    border: solid 5px #5b8def;
+    border-radius: 10px;
+    box-shadow: 4px 4px 7px #D6D6D6;
+    padding: 20px 10px;
+    color: #34464B;
+
+}
+.section1 button{
+    margin: 80px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 400px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #5b8def;
+    padding: 50px 20px;
+    border: solid 1px #E1E1E1;
+    border-radius: 25px;
+    background-color: #fff;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 .text3{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #E96A6A;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+
+
+
+@media (max-width: 600px){
+    /***** 섹션1 *****/
+    .section1{
+        padding: 0 15px;
+    }
+    .section1 .inner{
+
+    }
+    .section1 .text1{
+        margin-top: 40px;
+        font-size: 26px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section1 textarea{
+        margin-top: 20px;
+        margin-bottom: 50px;
+        display: block;
+        height: 250px;
+        width: 100%;
+        box-sizing: border-box;
+        border: solid 3px #5b8def;
+        border-radius: 10px;
+        padding: 20px 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #34464B;
+        resize: none;
+        box-shadow: 4px 4px 7px #D6D6D6;
+    }
+    .section1 textarea::-webkit-input-placeholder{
+        color: #cccccc;
+        font-size: 0.9em;
+    }
+    .section1 textarea:focus{
+        outline: none;
+    }
+    .section1 .text2{
+        margin-left: 10px;
+        font-size: 14px;
+        color: #34464B;
+        word-break: keep-all;
+    }
+    .section1 .file-area{
+        margin-top: 20px;
+    }
+    .section1 .file-area .input-file{
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+    }
+    .section1 .file-area label{
+        display: block;
+        width: 120px;
+        height: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #34464B;
+        text-align: center;
+        line-height: 25px;
+        border: solid 2px #5b8def;
+        border-radius: 10px;
+        box-sizing: border-box;
+        box-shadow: 4px 4px 7px #D6D6D6;
+    }
+    .section1 .file-area .upload-name{
+        margin-top: 10px;
+        display: block;
+        height: 130px;
+        width: 100%;
+        box-sizing: border-box;
+        border: solid 3px #5b8def;
+        border-radius: 10px;
+        box-shadow: 4px 4px 7px #D6D6D6;
+        padding: 20px 10px;
+        color: #34464B;
+
+    }
+    .section1 button{
+        margin: 50px auto 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #5b8def;
+        padding: 20px 0;
+        border: solid 1px #E1E1E1;
+        border-radius: 15px;
+        background-color: #fff;
+        box-shadow: 3px 3px 6px #D6D6D6;
+    }
+    .section1 .text3{
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #E96A6A;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+}

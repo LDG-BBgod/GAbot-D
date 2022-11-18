@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/estimate.css' %}?ver=5">
+<script defer src="{% static 'js/estimate.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            {% if request.session.user %}
+            <a class="menu" href="/mypage">마이페이지</a>
+            <a class="menu" href="/logout">로그아웃</a>
+            {% else %}
+            <a class="menu" href="/login">로그인</a>
+            <a class="menu" href="/register">회원가입</a>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <form method="POST" enctype="multipart/form-data" name="form">
+            {% csrf_token %}
+            <div class="text1">소견서</div>
+            <textarea class="textArea" name="opinion" placeholder="고객님에게 전달될 설계사님의 의견을 작성해 주세요."></textarea>
+            <div class="text1">견적서<span class="text2">(고객님에게 보낼 견적서를 PDF형식으로 첨부해 주세요.)</span></div>
+            <div class="file-area">
+                <label for="pdfFile">파일첨부</label>
+                <input class="input-file" type="file" name="pdfFile" id="pdfFile">
+                <div class="upload-name">첨부된 파일이 없습니다.</div>
+            </div>
+            
+        </form>
+        <button id="submit">견적서 제출하기</button>
+        <div class="text3">{{ compare.nextRegisterDate }}까지 수정 가능합니다.</div>
+    </div>
+</section>
+{% endblock %}

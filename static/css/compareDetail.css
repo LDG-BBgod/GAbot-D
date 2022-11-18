@@ -1,0 +1,237 @@
+/***** 공통 *****/
+
+/***** 섹션1 *****/
+.section1{
+
+}
+.section1 .inner{
+
+}
+.section1 .head{
+    margin-top: 100px;
+}
+.section1 .head .left-side{
+
+}
+.section1 .head .left-side .text1{
+    font-size: 36px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section1 .head .right-side{
+    
+}
+.section1 .head .right-side .text2{
+    padding-top: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #34464B;    
+}
+.section1 .content-box{
+    box-sizing: border-box;
+    margin-top: 15px;
+    border: solid 5px #5b8def;
+    border-radius: 20px;
+    padding: 50px;
+}
+.section1 .content-box .content{
+    border-top: solid 1px #5b8def;
+    height: 50px;
+    overflow: hidden;
+}
+.section1 .content-box .content.open{
+    height: 100%;
+}
+.section1 .content-box .content:last-child{
+    border-bottom: solid 1px #5b8def;
+}
+.section1 .content-box .content .title{
+    height: 50px;
+}
+.section1 .content-box .content .title .left-side{
+    line-height: 50px;
+}
+.section1 .content-box .content .title .left-side .text3{
+    font-size: 22px;
+    font-weight: bold;
+    color: #34464B;
+}
+.section1 .content-box .content .title .right-side{
+    line-height: 50px;
+}
+.section1 .content-box .content .title .right-side img{
+    margin-right: 5px;
+    height: 8px;
+}
+.section1 .content-box .content .title .right-side img:hover{
+    cursor: pointer;
+}
+.section1 .content-box .content .sub-title{
+    margin-top: 20px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #5b8def;
+}
+.section1 .content-box .content .text4{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 16px;
+    color: #34464B;
+}
+.section1 button{
+    margin: 150px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 400px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #5b8def;
+    padding: 50px 20px;
+    border: solid 1px #E1E1E1;
+    border-radius: 25px;
+    background-color: #fff;
+    box-shadow: 4px 4px 7px #D6D6D6;
+}
+.section1 .text5{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #5b8def;
+}
+.section1 .text5:hover{
+    cursor: pointer;
+}
+.section1 .text6{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #B1B1B1;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+
+
+
+@media (max-width: 600px){
+    /***** 섹션1 *****/
+    .section1{
+        padding: 0 15px;
+    }
+    .section1 .inner{
+
+    }
+    .section1 .head{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+    .section1 .head .left-side{
+
+    }
+    .section1 .head .left-side .text1{
+        font-size: 22px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section1 .head .right-side{
+        
+    }
+    .section1 .head .right-side .text2{
+        padding-top: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #34464B;    
+    }
+    .section1 .content-box{
+        box-sizing: border-box;
+        margin-top: 15px;
+        border: solid 5px #5b8def;
+        border-radius: 20px;
+        padding: 40px 20px;
+    }
+    .section1 .content-box .content{
+        border-top: solid 1px #5b8def;
+        height: 40px;
+        overflow: hidden;
+    }
+    .section1 .content-box .content.open{
+        height: 100%;
+    }
+    .section1 .content-box .content:last-child{
+        border-bottom: solid 1px #5b8def;
+    }
+    .section1 .content-box .content .title{
+        height: 40px;
+    }
+    .section1 .content-box .content .title .left-side{
+        line-height: 40px;
+    }
+    .section1 .content-box .content .title .left-side .text3{
+        font-size: 18px;
+        font-weight: bold;
+        color: #34464B;
+    }
+    .section1 .content-box .content .title .right-side{
+        line-height: 40px;
+    }
+    .section1 .content-box .content .title .right-side img{
+        margin-right: 5px;
+        height: 8px;
+    }
+    .section1 .content-box .content .title .right-side img:hover{
+        cursor: pointer;
+    }
+    .section1 .content-box .content .sub-title{
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #5b8def;
+    }
+    .section1 .content-box .content .text4{
+        margin-top: 15px;
+        margin-bottom: 40px;
+        font-size: 14px;
+        color: #34464B;
+    }
+    .section1 button{
+        margin: 50px auto 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+        color: #5b8def;
+        padding: 20px 0;
+        border: solid 1px #E1E1E1;
+        border-radius: 15px;
+        background-color: #fff;
+        box-shadow: 3px 3px 6px #D6D6D6;
+    }
+    .section1 .text5{
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #5b8def;
+    }
+    .section1 .text5:hover{
+        cursor: pointer;
+    }
+    .section1 .text6{
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #B1B1B1;
+        text-align: center;
+        margin-bottom: 100px;
+        line-height: 25px;
+        word-break: keep-all;
+    }
+
+}

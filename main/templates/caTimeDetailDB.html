@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/caDetailDB.css' %}?ver=5">
+<script defer src="{% static 'js/caDetailDB.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            <a class="menu" href="/caSelect">관리자</a>
+            <a class="menu" href="/caLogout">로그아웃</a>
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <div class="select">
+            <a href="/caUserDB">설계사 DB</a>
+            <a href="/caCompareDB">비교견적 DB</a>
+            <a href="/caConsultingDB">상담신청 DB</a>
+            <a href="/caMyinsuranceDB">보험진단 DB</a>
+            <a class="on" href="/caTimeDB">방문기록 DB</a>
+        </div>
+        <div class="content-box content-box-time">
+            <div class="title">
+                <div class="text1">PK</div>
+                <div class="text1">아이피</div>
+                <div class="text1">홈페이지 체류시간</div>
+                <div class="text1">선택페이지 채류시간</div>
+                <div class="text1">비교견적페이지 채류시간</div>
+                <div class="text1">상담예약 채류시간</div>
+                <div class="text1">보험진단 회원가입 채류시간</div>
+                <div class="text1">보험진단 세부내용 채류시간</div>
+                <div class="text1">버튼 관리시작</div>
+                <div class="text1">버튼 비교견적</div>
+                <div class="text1">버튼 비교견적 완료</div>
+                <div class="text1">버튼 상담예약</div>
+                <div class="text1">버튼 상담예약 완료</div>
+                <div class="text1">버튼 보험진단</div>
+                <div class="text1">등록 날짜</div>
+            </div>
+            <div class="content">
+                <div class="text2">{{ time.id }}</div>
+                <div class="text2">{{ time.userip }}</div>
+                <div class="text2">{{ time.homestaytime }}</div>
+                <div class="text2">{{ time.selectstaytime }}</div>
+                <div class="text2">{{ time.comparestaytime }}</div>
+                <div class="text2">{{ time.consultingstaytime }}</div>
+                <div class="text2">{{ time.diagnosisstaytime1 }}</div>
+                <div class="text2">{{ time.diagnosisstaytime2 }}</div>
+                <div class="text2">{{ time.managecount }}</div>
+                <div class="text2">{{ time.comparecount }}</div>
+                <div class="text2">{{ time.comparesubmitcount }}</div>
+                <div class="text2">{{ time.consultingcount }}</div>
+                <div class="text2">{{ time.consultingsubmitcount }}</div>
+                <div class="text2">{{ time.diagnosiscount }}</div>
+                <div class="text2">{{ time.registerdate }}</div>
+            </div>
+        </div>
+        <div class="bottom-button clearfix">
+            <div class="left-side float-left">
+                <a href="/caTimeDB">뒤로</a>
+            </div>
+            <div class="right-side float-right">
+                <button onclick="DeleteTimeData({{ time.id }})">삭제</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

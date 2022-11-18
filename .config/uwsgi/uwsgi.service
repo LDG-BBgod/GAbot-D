@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=/home/ubuntu/venv/bin/uwsgi -i /home/ubuntu/GAbot-D/.config/uwsgi/GAbot.ini
+ExecStart=/home/ubuntu/venv/bin/uwsgi -i /home/ubuntu/GAbot-D/.config/uwsgi/GAbotD.ini
 
 Restart=always
 KillSignal=SIGQUIT

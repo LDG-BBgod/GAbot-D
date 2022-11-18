@@ -1,0 +1,269 @@
+/***** 공통 *****/
+
+/***** 섹션1 *****/
+.section1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section1 .agree-box{
+    margin-top: 20px;
+    width: 1050px;
+    height: 80px;
+    border-radius: 3px;
+    border: solid 1px #CFCFCF;
+}
+.section1 .agree-box:first-child{
+    margin-top: 70px;
+}
+.section1 .agree-box .left-side{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.section1 .agree-box .left-side input{
+    margin: 0 10px 0 50px;
+    height: 20px;
+    width: 20px;
+    background: url(../img/agree.svg) no-repeat;
+    background-size: 20px 20px;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+.section1 .agree-box .left-side input:checked{
+    height: 20px;
+    width: 20px;
+    background: url(../img/agree_checked.svg) no-repeat;
+    background-size: 20px 20px;
+}
+.section1 .agree-box .left-side label{
+    font-size: 18px;
+    color: #34464B;
+}
+.section1 .agree-box .right-side{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.section1 .agree-box .right-side a{
+    margin-right: 50px;
+    color: #B1B1B1;
+}
+.section1 form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section1 .input-box{
+    margin-top: 100px;
+}
+.section1 .input-box .input-section{
+    height: 85px;
+    width: 1120px;
+    display: flex;
+    align-items: center;
+    border-top: solid 1px #34464B;
+}
+.section1 .input-box .input-section:first-child{
+    border-top: solid 2px #34464B;
+}
+.section1 .input-box .input-section:last-child{
+    border-bottom: solid 2px #34464B;
+}
+.section1 .input-box .input-section .text1{
+    font-size: 18px;
+    font-weight: bold;
+    color: #34464B;
+    width: 170px;
+    margin-left: 80px;
+}
+.section1 .input-box .input-section input{
+    height: 32px;
+    width: 400px;
+    border: solid 1px #34464B;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.section1 .input-box .input-section .error{
+    margin-left: 15px;
+    font-size: 14px;
+    color: #F83D3D;
+}
+.section1 .input-box .input-section .phone-button{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #5b8def;
+    width: 130px;
+    height: 40px;
+    border: solid 1px #E1E1E1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 7px #D6D6D6;
+}
+.section1 .input-box .input-section .phone-button:hover{
+    cursor: pointer;
+}
+.section1 button{
+    font-size: 35px;
+    font-weight: bold;
+    color: #34464B;
+    margin-top: 50px;
+    height: 80px;
+    width: 450px;
+    border: solid 1px #E1E1E1;
+    border-radius: 25px;
+    box-shadow: 7px 7px 7px #D6D6D6;
+    background-color: #fff;
+}
+.section1 .text2{
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    color: #5b8def;
+}
+
+
+
+
+@media (max-width: 600px){
+    /***** 섹션1 *****/
+    .section1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+    }
+    .section1 .agree-box{
+        margin-top: 20px;
+        width: 100%;
+        height: 40px;
+        border-radius: 2px;
+        border: solid 1px #CFCFCF;
+    }
+    .section1 .agree-box:first-child{
+        margin-top: 30px;
+    }
+    .section1 .agree-box .left-side{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .section1 .agree-box .left-side input{
+        margin: 0 10px 0 20px;
+        height: 16px;
+        width: 16px;
+        background: url(../img/agree.svg) no-repeat;
+        background-size: 16px 16px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+    .section1 .agree-box .left-side input:checked{
+        height: 16px;
+        width: 16px;
+        background: url(../img/agree_checked.svg) no-repeat;
+        background-size: 16px 16px;
+    }
+    .section1 .agree-box .left-side label{
+        font-size: 14px;
+        color: #34464B;
+    }
+    .section1 .agree-box .right-side{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .section1 .agree-box .right-side a{
+        margin-right: 20px;
+        color: #B1B1B1;
+        font-size: 14px;
+    }
+    .section1 form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .section1 .input-box{
+        margin-top: 50px;
+        width: 100%;
+    }
+    .section1 .input-box .input-section{
+        padding: 20px 0 30px 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-top: solid 1px #34464B;
+    }
+    .section1 .input-box .input-section:first-child{
+        border-top: solid 2px #34464B;
+    }
+    .section1 .input-box .input-section:last-child{
+        border-bottom: solid 2px #34464B;
+    }
+    .section1 .input-box .input-section .text1{
+        font-size: 14px;
+        font-weight: bold;
+        color: #34464B;
+        width: 100%;
+        margin-left: 0;
+    }
+    .section1 .input-box .input-section input{
+        box-sizing: border-box;
+        margin-top: 10px;
+        height: 25px;
+        width: 100%;
+        border: solid 1px #34464B;
+        border-radius: 5px;
+        padding-left: 5px;
+        font-size: 13px;
+    }
+    .section1 .input-box .input-section .error{
+        margin-top: 10px;
+        margin-left: 0;
+        width: 100%;
+        font-size: 14px;
+        color: #F83D3D;
+    }
+    .section1 .input-box .input-section .phone-button{
+        margin-left: 0;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #5b8def;
+        width: 100%;
+        height: 40px;
+        border: solid 1px #E1E1E1;
+        border-radius: 10px;
+        box-shadow: 3px 3px 7px #D6D6D6;
+    }
+    .section1 .input-box .input-section .phone-button:hover{
+        cursor: pointer;
+    }
+    .section1 button{
+        font-size: 25px;
+        font-weight: bold;
+        color: #34464B;
+        margin-top: 50px;
+        height: 50px;
+        width: 100%;
+        border: solid 1px #E1E1E1;
+        border-radius: 10px;
+        box-shadow: 3px 3px 6px #D6D6D6;
+        background-color: #fff;
+    }
+    .section1 .text2{
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: 50px;
+        color: #5b8def;
+    }
+}

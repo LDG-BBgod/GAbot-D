@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="그룹_145" data-name="그룹 145" transform="translate(-601 -695)">
+    <g id="사각형_581" data-name="사각형 581" transform="translate(601 695)" fill="#fff" stroke="#5b8def" stroke-width="2">
+      <rect width="30" height="30" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="28" height="28" rx="4" fill="none"/>
+    </g>
+    <line id="선_31" data-name="선 31" x2="7.646" y2="5.145" transform="translate(609 710.317)" fill="none" stroke="#5b8def" stroke-width="2"/>
+    <line id="선_32" data-name="선 32" y1="11.366" x2="7.751" transform="translate(615.249 704.317)" fill="none" stroke="#5b8def" stroke-width="2"/>
+  </g>
+</svg>

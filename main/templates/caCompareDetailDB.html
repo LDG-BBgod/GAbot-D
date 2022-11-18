@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/caDetailDB.css' %}?ver=5">
+<script defer src="{% static 'js/caDetailDB.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            <a class="menu" href="/caSelect">관리자</a>
+            <a class="menu" href="/caLogout">로그아웃</a>
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <div class="select">
+            <a href="/caUserDB">설계사 DB</a>
+            <a class="on" href="/caCompareDB">비교견적 DB</a>
+            <a href="/caConsultingDB">상담신청 DB</a>
+            <a href="/caMyinsuranceDB">보험진단 DB</a>
+            <a href="/caTimeDB">방문기록 DB</a>
+        </div>
+        <div class="content-box content-box-compare">
+            <div class="title">
+                <div class="text1">PK</div>
+                <div class="text1">아이피</div>
+                <div class="text1">연락 수단</div>
+                <div class="text1">연락처</div>
+                <div class="text1">관심 보험</div>
+                <div class="text1">월 보험료</div>
+                <div class="text1">병원 이력</div>
+                <div class="text1">의료 행위</div>
+                <div class="text1">증상 병명</div>
+                <div class="text1">지병</div>
+                <div class="text1">가족력</div>
+                <div class="text1">가족력 기타</div>
+                <div class="text1">생년월일</div>
+                <div class="text1">성별</div>
+                <div class="text1">직업</div>
+                <div class="text1">거주지</div>
+                <div class="text1">비교견적 건수</div>
+                <div class="text1">등록시간</div>
+            </div>
+            <div class="content">
+                <div class="text2">{{ compare.id }}</div>
+                <div class="text2">{{ compare.userip }}</div>
+                <div class="text2">{{ compare.method|blank_change }}</div>
+                <div class="text2">{{ compare.contact|blank_change }}</div>
+                <div class="text2">{{ compare.concern|blank_change }}</div>
+                <div class="text2">{{ compare.price|blank_change }}</div>
+                <div class="text2">{{ compare.hospital|blank_change }}</div>
+                <div class="text2">{{ compare.hospitaltreatment|blank_change }}</div>
+                <div class="text2">{{ compare.hospitaldisease|blank_change }}</div>
+                <div class="text2">{{ compare.disease|blank_change }}</div>
+                <div class="text2">{{ compare.familydisease|blank_change }}</div>
+                <div class="text2">{{ compare.familydiseaseetc|blank_change }}</div>
+                <div class="text2">{{ compare.birth|blank_change }}</div>
+                <div class="text2">{{ compare.gender|blank_change }}</div>
+                <div class="text2">{{ compare.job|blank_change }}</div>
+                <div class="text2">{{ compare.region|blank_change }}</div>
+                <div class="text2">{{ compare.consulting|blank_change }}</div>
+                <div class="text2">{{ compare.registerdate }}</div>
+            </div>
+        </div>
+        <div class="bottom-button clearfix">
+            <div class="left-side float-left">
+                <a href="/caCompareDB">뒤로</a>
+            </div>
+            <div class="right-side float-right">
+                <button onclick="DeleteCompareData({{ compare.id }})">삭제</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

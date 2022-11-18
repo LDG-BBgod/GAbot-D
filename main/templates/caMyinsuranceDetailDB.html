@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/caMyinsuranceDetailDB.css' %}?ver=5">
+<script>
+    const MYINSU = {{ myinsurance.id }}
+</script>
+<script defer src="{% static 'js/caMyinsuranceDetailDB.js' %}?ver=6"></script>
+{% endblock %}
+
+{% block contents %}
+<div class="inner" id="myInsuranceInner" style="display: block;">    
+    <a class="logo-box" href="/caMyinsuranceDB"><img src="../../static/img/logo_black.svg" alt=""></a>
+    <header>
+        <ul>
+            <li>
+                <div class="title">월 보험료</div>
+                <div class="content" id="main-amount"></div>
+            </li>
+            <li>
+                <div class="state-box"><img id="header-mark" src="" alt=""></div>
+            </li>
+            <li>
+                <div class="text text-top">보험료 대비 보장이</div>
+                <div class="text text-bottom" id="header-right-text"></div>
+            </li>
+        </ul>
+    </header>
+    <div>{{ myinsurance.id }} - {{ myinsurance.userip }}</div>
+    <section class="section1">
+        <div class="box">
+            <div class="list" id="list1">
+                <div class="box-top">
+                    <div class="title">월 보험료</div>
+                </div>
+                <div class="box-middle">
+                    <div class="stick-box">
+                        <div class="value" id="value-amount"></div>
+                        <div class="stick" id="stick-amount"></div>
+                        <div class="menu">고객님</div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="value" id="value-avgAmount"></div>
+                        <div class="stick" id="stick-avgAmount"></div>
+                        <div class="menuAge">OO대 평균</div>
+                    </div>
+                </div>
+                <div class="box-bottom" id="first-detail">
+                    <div class="detail">상세보기</div>
+                    <img src="../../static/img/arrow_double.svg" alt="">                
+                </div>
+            </div>
+            <div class="list" id="list2">
+                <div class="box-top">
+                    <div class="title">정액형(보장금액)</div>
+                </div>
+                <div class="box-middle">
+                    <div class="stick-box">
+                        <div class="value" id="value-customerMggAvg"></div>
+                        <div class="stick" id="stick-customerMggAvg"></div>
+                        <div class="menu">고객님</div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="value" id="value-MggAvg"></div>
+                        <div class="stick" id="stick-MggAvg"></div>
+                        <div class="menuAge">OO대 평균</div>
+                    </div>
+                </div>
+                <div class="box-bottom" id="second-detail">
+                    <div class="detail">상세보기</div>
+                    <img src="../../static/img/arrow_double.svg" alt="">                
+                </div>
+            </div>
+            <div class="list" id="list3">
+                <div class="box-top">
+                    <div class="title">실손형(가입률)</div>
+                </div>
+                <div class="box-sub-top">
+                    <div class="sub-title">실손 의료비</div>
+                    <div class="sub-title">기타 실손</div>
+                </div>
+                <div class="box-middle">
+                    <div class="stick-box">
+                        <div class="value" id="value-myMedRate"></div>
+                        <div class="stick" id="stick-myMedRate"></div>
+                        <div class="menu">고객님</div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="value" id="value-medRate"></div>
+                        <div class="stick" id="stick-medRate"></div>
+                        <div class="menuAge">OO대 평균</div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="value" id="value-etcMyMedRate"></div>
+                        <div class="stick" id="stick-etcMyMedRate"></div>
+                        <div class="menu">고객님</div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="value" id="value-etcMedRate"></div>
+                        <div class="stick" id="stick-etcMedRate"></div>
+                        <div class="menuAge">OO대 평균</div>
+                    </div>
+                </div>
+                <div class="box-bottom" id="third-detail">
+                    <div class="detail">상세보기</div>
+                    <img src="../../static/img/arrow_double.svg" alt="">                                 
+                </div>
+            </div>
+            <div class="detail-list" id="detail-list1" style="display: none;">
+                <div class="box-top">
+                    <div class="title">월 보험료</div>
+                </div>
+                <div class="box-middle">
+                    <div class="stick-box">
+                        <div class="menu">고객님</div>
+                        <div class="stick" id="stick-amount-detail"></div>
+                        <div class="value" id="value-amount-detail"></div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="menuAge"></div>
+                        <div class="stick" id="stick-avgAmount-detail"></div>
+                        <div class="value" id="value-avgAmount-detail"></div>
+                    </div>
+                </div>
+                <div class="box-bottom" id="first-exit">
+                    <img src="../../static/img/arrow_double.svg" alt="">  
+                    <div class="detail">접기</div>                                  
+                </div>
+                <div class="box-bottom2" id="first-exit2">
+                    <img src="../../static/img/arrow_double.svg" alt="">  
+                    <div class="detail">접기</div>                                  
+                </div>
+                <div class="box-detail1" id="first-detail-box">
+
+                </div>
+            </div>
+            <div class="detail-list" id="detail-list2" style="display: none;">
+                <div class="box-top">
+                    <div class="title">정액형(보장금액)</div>
+                </div>
+                <div class="box-middle">
+                    <div class="stick-box">
+                        <div class="menu">고객님</div>
+                        <div class="stick" id="stick-customerMggAvg-detail"></div>
+                        <div class="value" id="value-customerMggAvg-detail"></div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="menuAge"></div>
+                        <div class="stick" id="stick-MggAvg-detail"></div>
+                        <div class="value" id="value-MggAvg-detail"></div>
+                    </div>
+                </div>
+                <div class="box-bottom" id="second-exit">
+                    <img src="../../static/img/arrow_double.svg" alt="">  
+                    <div class="detail">접기</div>                                  
+                </div>
+                <div class="box-bottom2" id="second-exit2">
+                    <img src="../../static/img/arrow_double.svg" alt="">  
+                    <div class="detail">접기</div>                                  
+                </div>
+                <div class="box-detail2" id="second-detail-box">
+
+                </div>
+            </div>
+            <div class="detail-list" id="detail-list3" style="display: none;">
+                <div class="box-top">
+                    <div class="title">실손형(가입률)</div>
+                </div>
+                <div class="box-sub-top">
+                    <div class="sub-title">실손 의료비</div>
+                    <div class="sub-title">기타 실손</div>
+                </div>
+                <div class="box-middle">
+                    <div class="stick-box">
+                        <div class="menu">고객님</div>
+                        <div class="stick" id="stick-myMedRate-detail"></div>
+                        <div class="value" id="value-myMedRate-detail"></div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="menuAge"></div>     
+                        <div class="stick" id="stick-medRate-detail"></div>
+                        <div class="value" id="value-medRate-detail"></div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="menu">고객님</div>
+                        <div class="stick" id="stick-etcMyMedRate-detail"></div>
+                        <div class="value" id="value-etcMyMedRate-detail"></div>
+                    </div>
+                    <div class="stick-box">
+                        <div class="menuAge"></div>
+                        <div class="stick" id="stick-etcMedRate-detail"></div>
+                        <div class="value" id="value-etcMedRate-detail"></div>
+                    </div>
+                </div>
+                <div class="box-bottom" id="third-exit">
+                    <img src="../../static/img/arrow_double.svg" alt=""> 
+                    <div class="detail">접기</div>                                                    
+                </div>
+                <div class="box-bottom2" id="third-exit2">
+                    <img src="../../static/img/arrow_double.svg" alt=""> 
+                    <div class="detail">접기</div>                                                    
+                </div>
+                <div class="box-detail3" id="third-detail-box">
+
+                </div>
+            </div>
+        </div>
+    </setion>
+</div>
+<div class="detail-page" id="detailPage" style="display: none;">
+    <div class="detail-logo-box"><img src="../../static/img/logo_black.svg" alt=""></div>
+    <div class="inner-detail-page">
+        <div class="back-arrow-box"><img id="detailPageBackArrow" src="../../static/img/back-arrow.svg" alt=""></div>
+    </div>    
+</div>
+{% endblock %}

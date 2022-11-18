@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load custom_filter %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/caDB.css' %}?ver=5">
+<script defer src="{% static 'js/caDB.js' %}?ver=5"></script>
+{% endblock %}
+
+{% block contents %}
+<header>
+    <div class="inner clearfix">
+        <div class="left-side float-left">
+            <a class="text1" href="/">영업비서</a>
+            <a class="logo-box" href="/"><img src="../../static/img/logo.svg" alt="로고"></a>
+        </div>
+        <div class="right-side float-right">
+            <a class="menu" href="/caSelect">관리자</a>
+            <a class="menu" href="/caLogout">로그아웃</a>
+        </div>
+    </div>
+</header>
+<section class="section1">
+    <div class="inner">
+        <div class="select">
+            <a class="on" href="/caUserDB">설계사 DB</a>
+            <a href="/caCompareDB">비교견적 DB</a>
+            <a href="/caConsultingDB">상담신청 DB</a>
+            <a href="/caMyinsuranceDB">보험진단 DB</a>
+            <a href="/caTimeDB">방문기록 DB</a>
+        </div>
+        <div class="content-box content-box-gauser">
+            <div class="title">
+                <div class="text1">PK</div>
+                <div class="text1">아이디</div>
+                <div class="text1">휴대폰</div>
+                <div class="text1">상태</div>
+                <div class="text1">등록날짜</div>
+            </div>
+            {% for list in gauser %}
+            <div class="content">
+                <a href="/caUserDB/{{ list.id }}" class="text2">{{ list.id }}</a>
+                <div class="text2">{{ list.userid }}</div>
+                <div class="text2">{{ list.phone }}</div>
+                <div class="text2">{{ list.gaInfo|display_status }}</div>
+                <div class="text2">{{ list.registerDate }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="list-box">
+            {% if gauser.has_previous %}
+            <a class="page-button" href="?p={{ gauser.previous_page_number }}"><img src="../../static/img/prev_arrow.svg" alt="화살표">&nbsp이전</a>
+            {% else %}
+            <span class="page-button"><img src="../../static/img/prev_arrow.svg" alt="화살표">&nbsp이전</span>
+            {% endif %}
+            {% for page_number in gauser.paginator.page_range %}
+                {% if gauser.number == gauser.paginator.num_pages|add:-1 and page_number == gauser.paginator.num_pages|add:-4 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% elif gauser.number == gauser.paginator.num_pages and page_number == gauser.paginator.num_pages|add:-3 or gauser.number == gauser.paginator.num_pages and page_number == gauser.paginator.num_pages|add:-4 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% endif %}
+                {% if page_number >= gauser.number|add:-2 and page_number <= gauser.number|add:2 %}
+                    {% if page_number == gauser.number %}
+                    <a class="page-number current-page" href="?p={{ page_number }}">{{ page_number }}</a>
+                    {% else %}
+                    <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                    {% endif %}
+                {% endif %}
+                {% if gauser.number == 1 and page_number == 4 or gauser.number == 1 and page_number == 5 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% elif gauser.number == 2 and page_number == 5 %}
+                <a class="page-number" href="?p={{ page_number }}">{{ page_number }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if gauser.has_next %}
+            <a class="page-button" href="?p={{ gauser.next_page_number }}">다음&nbsp<img src="../../static/img/next_arrow.svg" alt="화살표"></a>
+            {% else %}
+            <span class="page-button">다음&nbsp<img src="../../static/img/next_arrow.svg" alt="화살표"></span>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<div class="section2">
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="search">
+        <button style="display: none;"></button>
+    </form>
+</div>
+{% endblock %}
