@@ -133,7 +133,8 @@ pymysql.install_as_MySQLdb()
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '*',
+    '.okgabot.co.kr',
+    '.www.okgabot.co.kr',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
