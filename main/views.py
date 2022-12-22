@@ -810,3 +810,18 @@ def CATimeDetailDB(request, pk):
     timeObject = HomeHomebutton.objects.get(pk = pk)
 
     return render(request, 'caTimeDetailDB.html', {'time': timeObject})
+
+
+
+# 추가페이지
+def CompanyView(request):
+    
+    return render(request, 'addCompany.html')
+
+def InfoView(request):
+    
+    return render(request, 'addInfo.html')
+
+def UseAgreementView(request):
+    
+    return render(request, 'addUseAgreement.html')

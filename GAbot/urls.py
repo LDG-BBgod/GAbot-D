@@ -6,6 +6,7 @@ from main.views import HomeView, MypageView, MypageDetailView, CompareView, Comp
 from main.views import RegisterAPI, SendMsgAPI, checkOverlap, FileDownload
 from main.views import CALoginView, CALogoutView, CASelectView, CACompareServiceView, CACompareServiceDetailView, CAConsultingServiceView, CAConsultingServiceDetailView
 from main.views import CAUserDB, CACompareDB, CAConsultingDB, CAMyinsuranceDB, CATimeDB, CAUserDetailDB, CACompareDetailDB, CAConsultingDetailDB, CAMyinsuranceDetailDB, CATimeDetailDB
+from main.views import CompanyView, InfoView, UseAgreementView
 urlpatterns = [
 
     path('', HomeView),
@@ -51,5 +52,9 @@ urlpatterns = [
     path('caConsultingDB/<int:pk>/', CAConsultingDetailDB),
     path('caMyinsuranceDB/<int:pk>/', CAMyinsuranceDetailDB),
     path('caTimeDB/<int:pk>/', CATimeDetailDB),
+
+    path('company/', CompanyView),
+    path('info/', InfoView),
+    path('useAgreement/', UseAgreementView),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -117,7 +117,7 @@ pymysql.install_as_MySQLdb()
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME' : 'gabot_exp',
+#         'NAME' : 'gabot_dev',
 #         'USER' : 'bbgod',
 #         'PASSWORD' : 'ldg8410229!', 
 #         'HOST': 'database-1.cev2vmz85jni.ap-northeast-2.rds.amazonaws.com',
@@ -135,7 +135,6 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '.okgabot.co.kr',
     '.www.okgabot.co.kr',
-    '*',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
